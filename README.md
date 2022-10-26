@@ -1,4 +1,4 @@
-## Airbnb Clone
+# Airbnb Clone
 
 ### Final Project
 ![final](https://github.com/devmarrie/AirBnB_clone/blob/master/images/full1.png?raw=true)
@@ -35,6 +35,8 @@ $ ./start.py
 The following code explains better what I could have put to words.Try it after reading ![all about cmd](https://docs.python.org/3.8/library/cmd.html) to understand better.
 
 ```
+#!/usr/bin/python3
+
 import cmd 
 
 class OverideBase(cmd.Cmd):
