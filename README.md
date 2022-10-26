@@ -1,4 +1,4 @@
-#### Airbnb Clone
+## Airbnb Clone
 
 ### Final Project
 ![final](https://github.com/devmarrie/AirBnB_clone/blob/master/images/full1.png?raw=true)
