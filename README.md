@@ -7,7 +7,7 @@
 ### Flow
 ![full flow](https://github.com/devmarrie/AirBnB_clone/blob/master/images/flow.png?raw=true)
 
->This project contains the following concepts as explained in the flow:
+<p>This project contains the following concepts as explained in the flow:</p>
  <p> A command interpreter to manipulate data without a visual interface, like in a Shell (perfect for development and debugging)</p>
 <p> A website (the front-end) that shows the final product to everybody: static and dynamic</p>
 <p>A database or files that store data (data = objects)</p>
