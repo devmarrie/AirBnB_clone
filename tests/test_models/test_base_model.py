@@ -27,6 +27,16 @@ class TestBaseModel(unittest.TestCase):
     def test_updated_type(self):
         self.assertEqual(datetime, type(BaseModel().updated_at))
 
+    def test_kwargs(self):
+        kwgs = {'id': '3a68d630-8a02-406f-927d-71b4526554d5',
+                'created_at': '2022-10-29T08:52:59.957348',
+                'updated_at': '2022-10-29T08:55:14.470644',
+                '__class__': 'BaseModel'
+               }
+        new = BaseModel(**kwgs)
+        self.assertEqual(new.id,kwgs['id'])
+
+
 
 class TestBaseModel_Save(unittest.TestCase):
     """Tests the save method"""
