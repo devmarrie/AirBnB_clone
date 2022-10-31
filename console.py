@@ -93,7 +93,8 @@ class HBNBCommand(cmd.Cmd):
             storage.save()
 
     def do_all(self, args=None):
-        """prints all string representation of all instances based
+        """
+        prints all string representation of all instances based
         or not on the class name.
         Ex: $ all BaseModel or $ all. 
         """
