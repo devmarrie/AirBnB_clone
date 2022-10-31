@@ -2,6 +2,8 @@
 from models.base_model import BaseModel
 
 """Inherits from the BaseModel class"""
+
+
 class City(BaseModel):
     """Public class attributes:
     state_id: string - empty string: it will be the State.id

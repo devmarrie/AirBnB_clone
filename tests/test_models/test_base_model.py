@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 """Defines the tests for the BaseModel class
-   
    Unittest classes:
    TestBaseModel_instantiation
    TestBaseModel_save
@@ -14,7 +13,7 @@ from datetime import datetime
 
 class TestBaseModel(unittest.TestCase):
     """Checking for class instantiation"""
-    
+
     def test_instance(self):
         self.assertEqual(BaseModel, type(BaseModel))
 
@@ -32,10 +31,9 @@ class TestBaseModel(unittest.TestCase):
                 'created_at': '2022-10-29T08:52:59.957348',
                 'updated_at': '2022-10-29T08:55:14.470644',
                 '__class__': 'BaseModel'
-               }
+                }
         new = BaseModel(**kwgs)
-        self.assertEqual(new.id,kwgs['id'])
-
+        self.assertEqual(new.id, kwgs['id'])
 
 
 class TestBaseModel_Save(unittest.TestCase):
@@ -45,8 +43,9 @@ class TestBaseModel_Save(unittest.TestCase):
         t1 = base.updated_at
         base.save()
         t2 = base.updated_at
-        self.assertNotEqual(t1,t2)
-    
+        self.assertNotEqual(t1, t2)
+
+
 class TestBaseModel_Todict(unittest.TestCase):
     """Test if our base function converts to dict and ISO format"""
     def test_type(self):

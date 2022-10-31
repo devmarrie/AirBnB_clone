@@ -2,8 +2,9 @@
 import email
 from models.base_model import BaseModel
 
-
 """a class User that inherits from BaseModel"""
+
+
 class User(BaseModel):
     """   
     Public class attributes:

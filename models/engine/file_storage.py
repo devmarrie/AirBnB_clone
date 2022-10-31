@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-Handles file storage 
+Handles file storage
 serialisation and Deserialization
 """
 
@@ -37,11 +37,11 @@ class FileStorage():
         nm = obj.__class__.__name__
         key = "{}.{}".format(nm, obj.id)
         self.__objects[key] = obj
-    
+
     def save(self):
         """
         Json serialization
-        We shall use our python dictonary dct 
+        We shall use our python dictonary dct
         so that we can easily convert to json object
         """
         dct = {}
@@ -50,7 +50,7 @@ class FileStorage():
             dct[key] = value.to_dict()
             with open(self.__file_path, "w") as f:
                 json.dump(dct, f)
-    
+
     def reload(self):
         """
         deserializes the JSON file to __objects
@@ -66,7 +66,3 @@ class FileStorage():
 
         except FileNotFoundError:
             pass
-
-
-
-    

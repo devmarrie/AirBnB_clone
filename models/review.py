@@ -2,6 +2,8 @@
 from models.base_model import BaseModel
 
 """Inherits from the BaseModel class"""
+
+
 class Review(BaseModel):
     """Public class attributes:
     place_id: string - empty string: it will be the Place.id
