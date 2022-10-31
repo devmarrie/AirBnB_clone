@@ -35,7 +35,7 @@ class BaseModel():
 
     def __str__(self):
         """
-        print: [<class name>] (<self.id>)
+        print: [<class name>] (<self.id>)<self.__dict__>
         """
         class_name = self.__class__.__name__
         inst_id = self.id
