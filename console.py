@@ -3,6 +3,7 @@
 from ast import arg
 import cmd
 from models.base_model import BaseModel
+from models.user import User
 from models import storage
 
 """
@@ -14,7 +15,7 @@ class HBNBCommand(cmd.Cmd):
     Including a prompt
     """
     prompt = "(hbnb)"
-    model = ["BaseModel"]
+    model = ["BaseModel","User"]
     
     def emptyline(self):
         """If not overriden it repeats the last empty line"""
@@ -86,7 +87,7 @@ class HBNBCommand(cmd.Cmd):
                     all2.append(v.__str__())
                 elif len(new) == 0:
                     all2.append(v.__str__())
-
+            print(all2)
     def do_update(self,args):
         """
         Updates an instance based on the class name and id by adding or updating attribute
