@@ -69,6 +69,11 @@ class TestFileStorageStorageIn(unittest.TestCase):
         self.assertIn(cy,models.storage.all().values())
         self.assertIn(am,models.storage.all().values())
         self.assertIn(rv,models.storage.all().values())
-    
+class TestFileStorageReload(unittest.TestCase): 
+    def test_FileStorage_Reload(self):
+        with self.assertRaises(TypeError):
+            models.storage.reload(None)
+
+
 if __name__ == "__main__":
     unittest.main()
