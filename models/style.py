@@ -4,6 +4,6 @@ import pycodestyle
 style_checker = pycodestyle.StyleGuide()
 
 #Run pep8 on multiple files
-result = style_checker.check_files(['test_file_storage.py',])
+result = style_checker.check_files(['user.py',])
 
 print(result.messages)
