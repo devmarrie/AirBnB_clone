@@ -21,7 +21,7 @@ class TestFileStorageType(unittest.TestCase):
     Checks the type of FileStorage
     """
     def test_FileStorage_type(self):
-        self.assertTrue(FileStorage,type(FileStorage))
+        self.assertTrue(FileStorage, type(FileStorage))
 
 
 class TestFileStorageInstance(unittest.TestCase):
@@ -30,10 +30,12 @@ class TestFileStorageInstance(unittest.TestCase):
         file = FileStorage()
         self.assertIsInstance(file, FileStorage)
 
+
 class TestFileStorageStorageType(unittest.TestCase):
     """Checks if type of all is a dict"""
     def test_FileStorage_all(self):
-        self.assertEqual(dict,type(models.storage.all()))
+        self.assertEqual(dict, type(models.storage.all()))
+
     def test_FileStorage_new(self):
         us = User()
         st = State()
@@ -41,15 +43,16 @@ class TestFileStorageStorageType(unittest.TestCase):
         cy = City()
         am = Amenity()
         rv = Review()
-        self.assertIn("User.{}".format(us.id),models.storage.all().keys())
-        self.assertIn("State.{}".format(st.id),models.storage.all().keys())
-        self.assertIn("Place.{}".format(pl.id),models.storage.all().keys())
-        self.assertIn("City.{}".format(cy.id),models.storage.all().keys())
-        self.assertIn("Amenity.{}".format(am.id),models.storage.all().keys())
-        self.assertIn("Review.{}".format(rv.id),models.storage.all().keys())
-        
-class TestFileStorageStorageIn(unittest.TestCase): 
-    """Tests if the files are stored"""       
+        self.assertIn("User.{}".format(us.id), models.storage.all().keys())
+        self.assertIn("State.{}".format(st.id), models.storage.all().keys())
+        self.assertIn("Place.{}".format(pl.id), models.storage.all().keys())
+        self.assertIn("City.{}".format(cy.id), models.storage.all().keys())
+        self.assertIn("Amenity.{}".format(am.id), models.storage.all().keys())
+        self.assertIn("Review.{}".format(rv.id), models.storage.all().keys())
+
+
+class TestFileStorageStorageIn(unittest.TestCase):
+    """Tests if the files are stored"""
     def test_FileStorage_Classes(self):
         us = User()
         st = State()
@@ -63,17 +66,20 @@ class TestFileStorageStorageIn(unittest.TestCase):
         models.storage.new(cy)
         models.storage.new(am)
         models.storage.new(rv)
-        self.assertIn(us,models.storage.all().values())
-        self.assertIn(st,models.storage.all().values())
-        self.assertIn(pl,models.storage.all().values())
-        self.assertIn(cy,models.storage.all().values())
-        self.assertIn(am,models.storage.all().values())
-        self.assertIn(rv,models.storage.all().values())
-class TestFileStorageReload(unittest.TestCase): 
+        self.assertIn(us, models.storage.all().values())
+        self.assertIn(st, models.storage.all().values())
+        self.assertIn(pl, models.storage.all().values())
+        self.assertIn(cy, models.storage.all().values())
+        self.assertIn(am, models.storage.all().values())
+        self.assertIn(rv, models.storage.all().values())
+
+
+class TestFileStorageReload(unittest.TestCase):
     def test_FileStorage_Reload(self):
         with self.assertRaises(TypeError):
             models.storage.reload(None)
 
 
 if __name__ == "__main__":
+
     unittest.main()
