@@ -26,6 +26,7 @@ class FileStorage():
     def new(self, obj):
         """
         Populates the _objects
+        The key now includes <class name.id>
         """
         nm = obj.__class__.__name__
         key = "{}.{}".format(nm, obj.id)
