@@ -25,7 +25,16 @@ class HBNBCommand(cmd.Cmd):
         if self.lastcmd:
             self.lastcmd = ""
             return self.onecmd("\n")
+
+    def do_quit(self):
+        """Exit using quit() method"""
+        print("Quitting")
+        raise SystemExit
     
+    def do_EOF(self):
+        """Exit using EOF"""
+        return True
+
     def do_create(self,args):
         """Usage: create <class>
         Create a new class instance and print its id.
@@ -138,14 +147,6 @@ class HBNBCommand(cmd.Cmd):
                 else:
                     obj.__dict__[k] = v
         storage.save()
-    def do_quit(self, args):
-        """Exit using quit() method"""
-        print("Quitting")
-        raise SystemExit
-    
-    def do_EOF(self, args):
-        """Exit using EOF"""
-        return True
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
