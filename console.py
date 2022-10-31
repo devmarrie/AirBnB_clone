@@ -10,7 +10,9 @@ from models.review import Review
 from models import storage
 
 """
-Console 0.0.1
+Console 0.0.1 
+This contains the interaction of our code with the 
+Interprator
 """
 
 class HBNBCommand(cmd.Cmd):
@@ -27,15 +29,20 @@ class HBNBCommand(cmd.Cmd):
             return self.onecmd("\n")
 
     def do_quit(self, args):
-        """Exit using quit method"""
+        """
+        Exit using quit method
+        """
         return True
     
     def do_EOF(self, args):
-        """Exit using EOF"""
+        """
+        Exit using EOF
+        """
         return True
 
     def do_create(self,args):
-        """Usage: create <class>
+        """
+        Usage: create <class>
         Create a new class instance and print its id.
         Ex: $ create BaseModel
         """
@@ -50,7 +57,8 @@ class HBNBCommand(cmd.Cmd):
             storage.save()
 
     def do_show(self,args):
-        """Prints the string representation of an instance
+        """
+        Prints the string representation of an instance
         based on the class name and id
         """
         all = storage.all()
@@ -67,7 +75,9 @@ class HBNBCommand(cmd.Cmd):
             print(all["{}.{}".format(new[0], new[1])])
 
     def do_destroy(self,args):
-        """Deletes an instance based on the class name and id"""
+        """ 
+        Deletes an instance based on the class name and id
+        """
         all = storage.all()
         new = args.split()
         if len(new) == 0:
