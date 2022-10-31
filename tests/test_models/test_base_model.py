@@ -15,7 +15,7 @@ class TestBaseModel(unittest.TestCase):
     """Checking for class instantiation"""
 
     def test_instance(self):
-        self.assertEqual(BaseModel, type(BaseModel))
+        self.assertTrue(BaseModel, type(BaseModel))
 
     def test_id_type(self):
         self.assertEqual(str, type(BaseModel().id))
@@ -50,7 +50,7 @@ class TestBaseModel_Todict(unittest.TestCase):
     """Test if our base function converts to dict and ISO format"""
     def test_type(self):
         dt = BaseModel()
-        self.assertTrue(dt, type(dict.to_dict()))
+        self.assertTrue(dt, type(dt.to_dict()))
 
     def test_dict(self):
         dt = self.__dict__
@@ -63,3 +63,7 @@ class TestBaseModel_Todict(unittest.TestCase):
         self.assertIn("created_at", dt.to_dict())
         self.assertIn("updated_at", dt.to_dict())
         self.assertIn("__class__", dt.to_dict())
+
+
+if __name__ == "__main__":
+    unittest.main()
