@@ -26,11 +26,11 @@ class HBNBCommand(cmd.Cmd):
             self.lastcmd = ""
             return self.onecmd("\n")
 
-    def do_quit(self):
+    def do_quit(self, args):
         """Exit using quit method"""
         return True
     
-    def do_EOF(self):
+    def do_EOF(self, args):
         """Exit using EOF"""
         return True
 
