@@ -21,6 +21,10 @@ class HBNBCommand(cmd.Cmd):
     Including a prompt
     """
     prompt = "(hbnb)"
+    doc_header = 'doc_header'
+    misc_header = 'misc_header'
+    undoc_header = 'undoc_header'
+    ruler = '-'
     model = ["BaseModel", "User", "Place",
              "State", "City", "Amenity", "Review"
              ]
