@@ -95,7 +95,7 @@ class HBNBCommand(cmd.Cmd):
             del all["{}.{}".format(new[0], new[1])]
             storage.save()
 
-    def do_all(self, args=None):
+    def do_all(self, args):
         """
         prints all string representation of all instances based
         or not on the class name.
@@ -107,7 +107,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         else:
             all2 = []
-            for v in storage.all().values():
+            for v in all().values():
                 if len(new[1]) > 0 and new[0] == v.__class__.__name__:
                     all2.append(v.__str__())
                 elif len(new) == 0:
