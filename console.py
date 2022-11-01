@@ -32,15 +32,11 @@ class HBNBCommand(cmd.Cmd):
             return self.onecmd("\n")
 
     def do_quit(self, args):
-        """
-        Exit using quit method
-        """
+        """Exit using quit method"""
         return True
 
     def do_EOF(self, args):
-        """
-        Exit using EOF
-        """
+        """Exit using EOF"""
         return True
 
     def do_create(self, args):
