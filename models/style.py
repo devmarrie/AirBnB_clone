@@ -4,6 +4,6 @@ import pycodestyle
 style_checker = pycodestyle.StyleGuide()
 
 #Run pep8 on multiple files
-result = style_checker.check_files(['console.py',])
+result = style_checker.check_files(['amenity.py',])
 
 print(result.messages)
