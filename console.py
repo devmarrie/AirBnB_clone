@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import cmd
+import re
 from models.base_model import BaseModel
 from models.user import User
 from models.place import Place
@@ -33,16 +34,22 @@ class HBNBCommand(cmd.Cmd):
         if self.lastcmd:
             self.lastcmd = ""
             return self.onecmd("\n")
-
+    
     def default(self, args):
         """
         User.all()
         <classname>.all()
         """
         clsname, mthd = args.split(".")
+        m = re.match('*(^[^(]+)', mthd)
+
         if mthd == 'all()':
             self.do_all(clsname)
-
+        if mthd == 'count()':
+            self.do_count(clsname)
+        if mthd == 'show()':
+            self.do_show(m,)
+        
     def do_quit(self, args):
         """Exit using quit method"""
         return True
@@ -135,19 +142,27 @@ class HBNBCommand(cmd.Cmd):
         elif clsname not in self.model:
             print("** class doesn't exist **")
         elif len(params) == 1:
+            print("** instance id missing **")
+        elif "{}.{}".format(clsname,clsid) not in all:
+            print("** no instance found **")
+        elif len(params) == 1:
             print("** value missing **")
         else:
             found = None
             for obj in all.values():
-                if clsid != obj.id:
-                    print("** instance id missing **")
                 found = obj
                 break
             if found is not None:
                 setattr(found, attr, new_val)
                 storage.save()
-            else:
-                print("** no instance found **")
+
+    def do_count(self,arg):
+        ct = 0
+        for v in storage.all().values():
+            if v.__class__.__name__ == arg:
+                ct += 1
+        print(ct)
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
