@@ -10,18 +10,21 @@ from models.review import Review
 from models import storage
 
 """
-Console 0.0.1 
-This contains the interaction of our code with the 
+Console 0.0.1
+This contains the interaction of our code with the
 Interprator
 """
+
 
 class HBNBCommand(cmd.Cmd):
     """
     Including a prompt
     """
     prompt = "(hbnb)"
-    model = ["BaseModel", "User", "Place", "State", "City", "Amenity", "Review"]
-    
+    model = ["BaseModel", "User", "Place",
+             "State", "City", "Amenity", "Review"
+             ]
+
     def emptyline(self):
         """If not overriden it repeats the last empty line"""
         if self.lastcmd:
@@ -33,14 +36,14 @@ class HBNBCommand(cmd.Cmd):
         Exit using quit method
         """
         return True
-    
+
     def do_EOF(self, args):
         """
         Exit using EOF
         """
         return True
 
-    def do_create(self,args):
+    def do_create(self, args):
         """
         Usage: create <class>
         Create a new class instance and print its id.
@@ -56,7 +59,7 @@ class HBNBCommand(cmd.Cmd):
             print(new_id)
             storage.save()
 
-    def do_show(self,args):
+    def do_show(self, args):
         """
         Prints the string representation of an instance
         based on the class name and id
@@ -67,15 +70,15 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif new[0] not in self.model:
             print("** class doesn't exist **")
-        elif  len(new) == 1:
+        elif len(new) == 1:
             print("** instance id missing **")
-        elif "{}.{}".format(new[0],new[1]) not in all:
+        elif "{}.{}".format(new[0], new[1]) not in all:
             print("no instance found")
         else:
             print(all["{}.{}".format(new[0], new[1])])
 
-    def do_destroy(self,args):
-        """ 
+    def do_destroy(self, args):
+        """
         Deletes an instance based on the class name and id
         """
         all = storage.all()
@@ -84,9 +87,9 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif new[0] not in self.model:
             print("** class doesn't exist **")
-        elif  len(new) == 1:
+        elif len(new) == 1:
             print("** instance id missing **")
-        elif "{}.{}".format(new[0],new[1]) not in all:
+        elif "{}.{}".format(new[0], new[1]) not in all:
             print("no instance found")
         else:
             del all["{}.{}".format(new[0], new[1])]
@@ -96,25 +99,29 @@ class HBNBCommand(cmd.Cmd):
         """
         prints all string representation of all instances based
         or not on the class name.
-        Ex: $ all BaseModel or $ all. 
+        Ex: $ all BaseModel or $ all.
         """
         all = storage.all()
         new = args.split()
         if new[0] not in self.model:
             print("** class doesn't exist **")
         else:
-            all2 =[]
+            all2 = []
             for v in storage.all().values():
                 if len(new[1]) > 0 and new[0] == v.__class__.__name__:
                     all2.append(v.__str__())
                 elif len(new) == 0:
                     all2.append(v.__str__())
             print(all2)
-    def do_update(self,args):
+
+    def do_update(self, args):
         """
-        Updates an instance based on the class name and id by adding or updating attribute
-        (save the change into the JSON file). Ex: $ update BaseModel 1234-1234-1234 email 
-        Usage: update <class name> <id> <attribute name> "<attribute value>"
+        Updates an instance based on the class name and id
+        by adding or updating attribute
+        (save the change into the JSON file).
+        Ex: $ update BaseModel 1234-1234-1234 email
+        Usage: update <class name> <id>
+        <attribute name> "<attribute value>"
         """
         argl = args.split()
         objdict = storage.all()
@@ -158,9 +165,6 @@ class HBNBCommand(cmd.Cmd):
                     obj.__dict__[k] = v
         storage.save()
 
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
-
-    
-    
-
