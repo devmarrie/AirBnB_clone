@@ -47,13 +47,13 @@
 /* Locations and amenities hover opacity */
 .filters .locations:hover,
 .filters .amenities:hover {
-  background-color: #fafafa;
+  background-color: #FAFAFA;
 }
 
 /* Locations and amenities popover menu */
 .filters .popover {
-  background-color: #fafafa;
-  border: 1px solid #ddd;
+  background-color: #FAFAFA;
+  border: 1px solid #DDDDDD;
   border-radius: 4px;
   display: none;
   position: absolute;
